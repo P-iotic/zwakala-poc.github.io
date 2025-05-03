@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zwakala App Mockup</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.5s ease;
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .clickable-area {
+            position: absolute;
+            cursor: pointer;
+        }
+        .nav-btn {
+            position: absolute;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="login" class="screen" style="background-image: url('1-login.jpeg');">
+        <div class="clickable-area" onclick="navigate('home')" style="top:55%; left:25%; width:50%; height:6%;"></div>
+    </div>
+
+    <div id="home" class="screen hidden" style="background-image: url('2-home.jpeg');">
+        <div class="clickable-area" onclick="navigate('restaurants')" style="top:40%; left:20%; width:25%; height:10%;"></div>
+        <div class="clickable-area" onclick="navigate('province')" style="top:40%; left:55%; width:25%; height:10%;"></div>
+        <div class="clickable-area" onclick="navigate('province')" style="top:55%; left:20%; width:25%; height:10%;"></div>
+        <div class="clickable-area" onclick="navigate('province')" style="top:55%; left:55%; width:25%; height:10%;"></div>
+    </div>
+
+    <div id="restaurants" class="screen hidden" style="background-image: url('restaurants.jpeg');"></div>
+
+    <div id="province" class="screen hidden" style="background-image: url('choose-destination-province.jpeg');">
+        <div class="clickable-area" onclick="navigate('gauteng')" style="top:35%; left:20%; width:20%; height:10%;"></div>
+    </div>
+
+    <div id="gauteng" class="screen hidden" style="background-image: url('gauteng-province-selection.jpeg');"></div>
+
+    <div id="profile" class="screen hidden" style="background-image: url('my-wallet.jpeg');"></div>
+
+    <div class="nav-btn" onclick="navigate('home')" style="left:20%;"></div>
+    <div class="nav-btn" onclick="navigate('profile')" style="left:35%;"></div>
+	<div class="nav-btn" onclick="navigate('profile')" style="left:50%;"></div>
+    <div class="nav-btn" onclick="navigate('profile')" style="left:65%;"></div>
+
+    <script>
+        function navigate(screen) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
+            document.getElementById(screen).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
